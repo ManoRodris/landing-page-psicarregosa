@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Navbar, WhatsAppButton } from "@/components/site-chrome";
 import pedroPhoto from "@/assets/pedro-carregosa.jpg";
+import consultorioPhoto from "@/assets/consultorio.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -87,6 +88,18 @@ function Index() {
         id="top"
         className="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden"
       >
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-center bg-cover scale-110"
+          style={{
+            backgroundImage: `url(${consultorioPhoto})`,
+            filter: "blur(6px)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-background/70"
+        />
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
