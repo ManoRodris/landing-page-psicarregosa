@@ -90,7 +90,7 @@ function Index() {
       >
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-center bg-cover scale-110"
+          className="absolute inset-0 bg-center bg-cover scale-110"
           style={{
             backgroundImage: `url(${consultorioPhoto})`,
             filter: "blur(6px)",
@@ -98,17 +98,17 @@ function Index() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-background/70"
+          className="absolute inset-0 bg-background/70"
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0"
           style={{
             background:
               "radial-gradient(ellipse at top right, color-mix(in oklab, var(--sage) 35%, transparent), transparent 60%), radial-gradient(ellipse at bottom left, color-mix(in oklab, var(--accent) 30%, transparent), transparent 55%)",
           }}
         />
-        <div className="container-prose">
+        <div className="container-prose relative z-10">
           <div className="max-w-3xl">
             <SectionLabel>Atendimento psicológico online</SectionLabel>
             <h1 className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground">
