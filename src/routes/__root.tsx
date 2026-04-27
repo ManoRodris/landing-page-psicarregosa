@@ -36,7 +36,7 @@ export const Route = createRootRoute({
           "Psicólogo clínico online. Atuação em Análise do Comportamento e Terapias Contextuais (ACT) para adolescentes e adultos. CRP 03/35627.",
       },
       { name: "author", content: "Pedro Carregosa" },
-      { property: "og:title", content: "Pedro Carregosa | Psicólogo Clínico" },
+      { property: "og:title", content: "Pedro Carregosa | Psicólogo Clínico — Atendimento Online" },
       {
         property: "og:description",
         content:
@@ -44,6 +44,12 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Pedro Carregosa | Psicólogo Clínico — Atendimento Online" },
+      { name: "description", content: "Escuta qualificada para dificuldades nas relações pessoais, no lidar com os próprios sentimentos, ansiedade, sobrecarga emocional, angústia, solidão." },
+      { property: "og:description", content: "Escuta qualificada para dificuldades nas relações pessoais, no lidar com os próprios sentimentos, ansiedade, sobrecarga emocional, angústia, solidão." },
+      { name: "twitter:description", content: "Escuta qualificada para dificuldades nas relações pessoais, no lidar com os próprios sentimentos, ansiedade, sobrecarga emocional, angústia, solidão." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/wAdc2B5H6oPNZGWLcwCljUj4L3H2/social-images/social-1777320259069-IMG_1921_Copy~2.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/wAdc2B5H6oPNZGWLcwCljUj4L3H2/social-images/social-1777320259069-IMG_1921_Copy~2.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
