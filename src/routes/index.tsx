@@ -169,7 +169,7 @@ function Index() {
             <div className="md:col-span-7 md:pt-6">
               <SectionLabel>Sobre Mim</SectionLabel>
               <h2 className="text-3xl md:text-5xl text-foreground leading-tight">
-                Uma escuta cuidadosa para o seu momento.
+                Um resumo do meu modo de trabalho
               </h2>
               <p className="mt-8 text-base md:text-lg text-foreground/80 leading-relaxed">
                 Minha atuação se baseia na <strong className="text-sage-deep font-medium">Análise do Comportamento</strong> e nas{" "}
