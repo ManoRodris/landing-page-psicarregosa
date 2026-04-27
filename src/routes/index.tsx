@@ -266,15 +266,15 @@ function Index() {
       >
         <div className="container-prose relative">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="flex items-center gap-3 text-primary-foreground/80 mb-4 justify-center">
-              <span className="h-px w-8 bg-primary-foreground/50" />
+            <div className="flex items-center gap-3 text-black/70 mb-4 justify-center">
+              <span className="h-px w-8 bg-black/40" />
               <span className="text-xs uppercase tracking-[0.2em] font-medium">Contato</span>
-              <span className="h-px w-8 bg-primary-foreground/50" />
+              <span className="h-px w-8 bg-black/40" />
             </div>
-            <h2 className="text-3xl md:text-5xl text-primary-foreground leading-tight">
+            <h2 className="text-3xl md:text-5xl text-black leading-tight">
               Vamos conversar?
             </h2>
-            <p className="mt-5 text-primary-foreground/85 text-lg">
+            <p className="mt-5 text-black/80 text-lg">
               Se algo aqui ressoou com você, entre em contato. Será um prazer te receber.
             </p>
           </div>
@@ -316,8 +316,8 @@ function Index() {
           </div>
         </div>
 
-        <footer className="mt-20 pt-8 border-t border-primary-foreground/15 relative">
-          <div className="container-prose flex flex-col md:flex-row items-center justify-between gap-4 text-primary-foreground/70 text-xs">
+        <footer className="mt-20 pt-8 border-t border-black/15 relative">
+          <div className="container-prose flex flex-col md:flex-row items-center justify-between gap-4 text-black/70 text-xs">
             <span>© {new Date().getFullYear()} Pedro Carregosa — CRP 03/35627</span>
             <span>Atendimento psicológico online</span>
           </div>
@@ -377,15 +377,15 @@ function ContactCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col items-center text-center gap-2 bg-background/10 backdrop-blur-sm border border-primary-foreground/15 rounded-2xl p-6 hover:bg-background/20 transition-all hover:-translate-y-0.5"
+      className="group flex flex-col items-center text-center gap-2 bg-background/10 backdrop-blur-sm border border-black/15 rounded-2xl p-6 hover:bg-background/20 transition-all hover:-translate-y-0.5"
     >
-      <span className="w-11 h-11 rounded-full bg-primary-foreground/15 flex items-center justify-center text-primary-foreground mb-2">
+      <span className="w-11 h-11 rounded-full bg-black/10 flex items-center justify-center text-black mb-2">
         {icon}
       </span>
-      <span className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">
+      <span className="text-xs uppercase tracking-[0.18em] text-black/70">
         {label}
       </span>
-      <span className="font-serif text-lg text-primary-foreground">{value}</span>
+      <span className="font-serif text-lg text-black">{value}</span>
     </a>
   );
 }
