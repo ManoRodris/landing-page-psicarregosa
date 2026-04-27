@@ -93,12 +93,12 @@ function Index() {
           className="absolute inset-0 bg-center bg-cover scale-110"
           style={{
             backgroundImage: `url(${consultorioPhoto})`,
-            filter: "blur(6px)",
+            filter: "blur(3px)",
           }}
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-background/70"
+          className="absolute inset-0 bg-background/30"
         />
         <div
           aria-hidden
