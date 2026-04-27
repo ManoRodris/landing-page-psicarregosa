@@ -93,12 +93,12 @@ function Index() {
           className="absolute inset-0 bg-center bg-cover scale-110"
           style={{
             backgroundImage: `url(${consultorioPhoto})`,
-            filter: "blur(3px)",
+            filter: "blur(4px)",
           }}
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-background/30"
+          className="absolute inset-0 bg-background/50"
         />
         <div
           aria-hidden
@@ -118,7 +118,7 @@ function Index() {
               </em>{" "}
               o que você sente e construir uma vida com mais sentido.
             </h1>
-            <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-8 text-lg md:text-xl text-black max-w-2xl leading-relaxed">
               Psicoterapia para adolescentes e adultos, fundamentada na Análise
               do Comportamento e nas Terapias Contextuais (ACT).
             </p>
