@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     q: "Aceita plano de saúde?",
-    a: "No momento, não aceito plano de saúde.",
+    a: "No momento, não aceito planos de saúde.",
   },
   {
     q: "Como funciona uma consulta online?",
