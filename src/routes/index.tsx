@@ -1,5 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+
+// Defina VITE_FORM_ENDPOINT no .env.local e nas env vars da Vercel.
+// Recomendado: crie um formulário gratuito em formspree.io e use a URL fornecida.
+// Ex: VITE_FORM_ENDPOINT=https://formspree.io/f/SEU_ID
+const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT ?? "";
 import { Navbar, WhatsAppButton } from "@/components/site-chrome";
 import pedroPhoto from "@/assets/pedro-carregosa.jpg";
 import consultorioPhoto from "@/assets/consultorio.jpg";
@@ -268,6 +273,48 @@ function Index() {
         </div>
       </section>
 
+      {/* FORMULÁRIO DE CAPTAÇÃO */}
+      <section id="agendar" className="section-pad bg-cream/40">
+        <div className="container-prose">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+            <div className="md:pt-2">
+              <SectionLabel>Primeiro Passo</SectionLabel>
+              <h2 className="text-3xl md:text-5xl text-foreground leading-tight">
+                Dê o primeiro passo
+              </h2>
+              <p className="mt-6 text-base md:text-lg text-foreground/75 leading-relaxed">
+                Preencha o formulário e entrarei em contato para conversarmos sobre o que te traz aqui. Sem compromisso.
+              </p>
+              <ul className="mt-8 space-y-3">
+                {[
+                  "Atendimento 100% online",
+                  "Resposta em até 24h",
+                  "Sem compromisso",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-foreground/80 text-[15px]">
+                    <span className="w-5 h-5 rounded-full bg-sage/30 flex items-center justify-center flex-shrink-0">
+                      <svg
+                        width="10"
+                        height="8"
+                        viewBox="0 0 10 8"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="text-sage-deep"
+                      >
+                        <path d="M1 4l3 3 5-6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <LeadForm />
+          </div>
+        </div>
+      </section>
+
       {/* CONTATO */}
       <section
         id="contato"
@@ -337,6 +384,147 @@ function Index() {
         </footer>
       </section>
     </div>
+  );
+}
+
+type LeadData = { name: string; email: string; phone: string; message: string };
+type FormStatus = "idle" | "loading" | "success" | "error";
+
+function LeadForm() {
+  const [data, setData] = useState<LeadData>({ name: "", email: "", phone: "", message: "" });
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  const set =
+    (field: keyof LeadData) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setData((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      if (FORM_ENDPOINT) {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error();
+      }
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div className="bg-card border border-border rounded-2xl p-10 flex flex-col items-center gap-5 text-center">
+        <div className="w-16 h-16 rounded-full bg-sage/20 flex items-center justify-center">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="text-sage-deep"
+          >
+            <path d="M4 12l5 5L20 7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <h3 className="font-serif text-2xl text-foreground">Mensagem recebida!</h3>
+          <p className="mt-2 text-foreground/70 text-sm leading-relaxed">
+            Obrigado pela confiança. Entrarei em contato em breve.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const inputClass =
+    "w-full bg-transparent border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-sage-deep transition-colors";
+  const labelClass = "block text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1.5";
+
+  return (
+    <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-8 md:p-10 space-y-5">
+      <div className="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label htmlFor="lead-name" className={labelClass}>
+            Nome <span className="text-sage-deep">*</span>
+          </label>
+          <input
+            id="lead-name"
+            name="name"
+            type="text"
+            required
+            value={data.name}
+            onChange={set("name")}
+            placeholder="Seu nome"
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label htmlFor="lead-email" className={labelClass}>
+            Email <span className="text-sage-deep">*</span>
+          </label>
+          <input
+            id="lead-email"
+            name="email"
+            type="email"
+            required
+            value={data.email}
+            onChange={set("email")}
+            placeholder="seu@email.com"
+            className={inputClass}
+          />
+        </div>
+      </div>
+      <div>
+        <label htmlFor="lead-phone" className={labelClass}>
+          WhatsApp
+        </label>
+        <input
+          id="lead-phone"
+          name="phone"
+          type="tel"
+          value={data.phone}
+          onChange={set("phone")}
+          placeholder="(00) 00000-0000"
+          className={inputClass}
+        />
+      </div>
+      <div>
+        <label htmlFor="lead-message" className={labelClass}>
+          O que te traz aqui?
+        </label>
+        <textarea
+          id="lead-message"
+          name="message"
+          rows={4}
+          value={data.message}
+          onChange={set("message")}
+          placeholder="Conte um pouco sobre o que você está buscando (opcional)"
+          className={`${inputClass} resize-none`}
+        />
+      </div>
+      {status === "error" && (
+        <p className="text-sm text-destructive">
+          Não foi possível enviar. Tente novamente ou entre em contato pelo WhatsApp.
+        </p>
+      )}
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="w-full bg-sage-deep text-primary-foreground py-3.5 rounded-full text-sm font-medium hover:bg-sage-deep/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {status === "loading" ? "Enviando…" : "Enviar mensagem"}
+      </button>
+      <p className="text-center text-xs text-muted-foreground">
+        Campos com <span className="text-sage-deep">*</span> são obrigatórios
+      </p>
+    </form>
   );
 }
 

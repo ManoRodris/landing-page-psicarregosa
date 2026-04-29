@@ -26,6 +26,8 @@ const sections = [
   { id: "contato", label: "Contato" },
 ];
 
+const agendarId = "agendar";
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -82,6 +84,12 @@ export function Navbar() {
               {s.label}
             </button>
           ))}
+          <button
+            onClick={() => handleClick(agendarId)}
+            className="text-sm bg-sage-deep text-primary-foreground px-5 py-2 rounded-full hover:bg-sage-deep/90 transition-colors"
+          >
+            Agendar
+          </button>
         </nav>
 
         <button
@@ -114,6 +122,12 @@ export function Navbar() {
                 {s.label}
               </button>
             ))}
+            <button
+              onClick={() => handleClick(agendarId)}
+              className="text-left text-sm font-medium text-sage-deep py-2"
+            >
+              Agendar →
+            </button>
           </nav>
         </div>
       )}
