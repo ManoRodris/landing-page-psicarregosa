@@ -1,6 +1,4 @@
-import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
 
 function NotFoundComponent() {
   return (
@@ -25,60 +23,9 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pedro Carregosa | Psicólogo Clínico — Atendimento Online" },
-      {
-        name: "description",
-        content:
-          "Psicólogo clínico online. Atuação em Análise do Comportamento e Terapias Contextuais (ACT) para adolescentes e adultos. CRP 03/35627.",
-      },
-      { name: "author", content: "Pedro Carregosa" },
-      { property: "og:title", content: "Pedro Carregosa | Psicólogo Clínico — Atendimento Online" },
-      {
-        property: "og:description",
-        content:
-          "Atendimento psicológico online com foco em ACT. Ansiedade, relacionamentos, autoestima e mais.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Pedro Carregosa | Psicólogo Clínico — Atendimento Online" },
-      { name: "description", content: "Escuta qualificada para dificuldades nas relações pessoais, no lidar com os próprios sentimentos, ansiedade, sobrecarga emocional, angústia, solidão." },
-      { property: "og:description", content: "Escuta qualificada para dificuldades nas relações pessoais, no lidar com os próprios sentimentos, ansiedade, sobrecarga emocional, angústia, solidão." },
-      { name: "twitter:description", content: "Escuta qualificada para dificuldades nas relações pessoais, no lidar com os próprios sentimentos, ansiedade, sobrecarga emocional, angústia, solidão." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/wAdc2B5H6oPNZGWLcwCljUj4L3H2/social-images/social-1777320259069-IMG_1921_Copy~2.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/wAdc2B5H6oPNZGWLcwCljUj4L3H2/social-images/social-1777320259069-IMG_1921_Copy~2.webp" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="pt-BR">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return <Outlet />;
