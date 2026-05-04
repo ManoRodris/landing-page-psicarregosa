@@ -54,7 +54,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
->>>>>>> 5e59daf (feat: adicionando as tags para o Google Ads)
 function RootComponent() {
   return <Outlet />;
 }
