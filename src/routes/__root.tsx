@@ -27,8 +27,6 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
-<<<<<<< HEAD
-=======
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
