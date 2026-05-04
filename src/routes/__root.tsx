@@ -27,6 +27,36 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
+<<<<<<< HEAD
+=======
+function RootShell({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="pt-BR">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18093021258"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'AW-18093021258');
+            `,
+          }}
+        />
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+>>>>>>> 5e59daf (feat: adicionando as tags para o Google Ads)
 function RootComponent() {
   return <Outlet />;
 }
