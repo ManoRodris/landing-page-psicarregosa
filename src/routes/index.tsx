@@ -119,7 +119,7 @@ function Index() {
               o que você sente e construir uma vida com mais sentido.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-black max-w-2xl leading-relaxed">
-              Psicoterapia para adolescentes e adultos, fundamentada na Análise
+              Psicoterapia Online para adolescentes e adultos, fundamentada na Análise
               do Comportamento e nas Terapias Contextuais (ACT).
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
